@@ -1,10 +1,18 @@
-
+import { CategoriesCarousel } from '../../components/CategoriesCarousel';
+import { Banner, Container, Content } from './styles';
 
 export function Home() {
     return (
-        <div>
-            <h1>Bem-vindo à Dev Burguer!</h1>
-            <p>Escolha seu lanche favorito e faça seu pedido online.</p>
-        </div>
+        <main>
+            <Banner>
+            <h1>Bem-vindo ao Dev Burguer!</h1>
+            </Banner>
+            <Container>
+                <Content>
+                    <CategoriesCarousel />
+                    <div>Carrossel Produtos</div>
+                </Content>
+            </Container>
+        </main>
     )
 }
