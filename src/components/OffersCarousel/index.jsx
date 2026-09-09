@@ -4,7 +4,8 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { api } from '../../services/api';
-import { Container, Title, ContainerItems } from './styles';
+import { Container, Title } from './styles';
+import { CardProduct } from '../CardProduct';
 
 export function OffersCarousel() {
   const [offers, setOffers] = useState([]);
@@ -32,7 +33,7 @@ export function OffersCarousel() {
       <Title>Ofertas do Dia</Title>
 
       <Swiper
-        spaceBetween={20}
+        spaceBetween={30}
         slidesPerView={4}
         navigation
         loop
@@ -51,9 +52,7 @@ export function OffersCarousel() {
       >
         {offers.map((product) => (
           <SwiperSlide key={product.id}>
-            <ContainerItems $imageUrl={product.url}>
-              <p>{product.name}</p>
-            </ContainerItems>
+           <CardProduct product={product} />
           </SwiperSlide>
         ))}
       </Swiper>
