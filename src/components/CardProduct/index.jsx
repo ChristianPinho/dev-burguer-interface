@@ -9,7 +9,7 @@ export function CardProduct({ product }) {
             <CardImage src={product.url} alt={product.name} />
             <div>
                 <p>{product.name}</p>
-                <strong>${product.price.toFixed(2)}</strong>
+                <strong>{product.currencyValue}</strong>
             </div>
             <CartButton></CartButton>
         </Container>

@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
   padding: 20px;
   margin-top: 50px;
   position: relative;
@@ -19,6 +19,7 @@ export const Container = styled.div`
     justify-content: center;
     width: 100%;
     height: 80px;
+    gap: 5px;
 
     p {
       font-size: 18px;

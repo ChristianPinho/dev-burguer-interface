@@ -6,6 +6,7 @@ import 'swiper/css/navigation';
 import { api } from '../../services/api';
 import { Container, Title } from './styles';
 import { CardProduct } from '../CardProduct';
+import { formatPrice } from '../../utils/formatPrice';
 
 export function OffersCarousel() {
   const [offers, setOffers] = useState([]);
@@ -14,9 +15,12 @@ export function OffersCarousel() {
     async function loadProducts() {
       const { data } = await api.get('/products');
 
-      const offers = data.filter((product) => product.offer);
-
-      console.log(offers);
+      const offers = data
+        .filter((product) => product.offer)
+        .map((product) => ({
+          currencyValue: formatPrice(product.price),
+          ...product,
+        }));
 
       setOffers(offers);
     }
@@ -52,7 +56,7 @@ export function OffersCarousel() {
       >
         {offers.map((product) => (
           <SwiperSlide key={product.id}>
-           <CardProduct product={product} />
+            <CardProduct product={product} />
           </SwiperSlide>
         ))}
       </Swiper>
